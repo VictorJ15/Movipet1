@@ -23,10 +23,11 @@ class DetallesServicio : AppCompatActivity() {
         // Obtener el id del veterinario de los extras del intent
         idVeterinario = intent.getStringExtra("idVeterinario").toString()
 
-        binding.btn_continuar.setOnClickListener {
+        binding.btnContinuar.setOnClickListener {
             val intent = Intent(this, Pago::class.java)
             startActivity(intent)
         }
+
 
 
 
