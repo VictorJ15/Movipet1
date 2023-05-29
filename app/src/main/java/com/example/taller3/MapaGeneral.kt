@@ -93,11 +93,11 @@ class MapaGeneral : AppCompatActivity(), OnMapReadyCallback {
                             // Agregar una línea recta entre el usuario y el marcador más cercano
                             agregarLineaRectaEntreMarcadores(ubicacionUsuarioActual,it.position)
 
-                            val nombreVeterinario = it.title
+                            val idVet = marcadorMasCercano.tag as? String
 
                             // Crear el intent y pasar el nombre del veterinario a la actividad DetallesServicio
                             val intent = Intent(this, DetallesServicio::class.java)
-                            intent.putExtra("nombreVeterinario", nombreVeterinario)
+                            intent.putExtra("idVeterinario", idVet)
 
                         } ?: run {
                             Toast.makeText(
@@ -112,7 +112,7 @@ class MapaGeneral : AppCompatActivity(), OnMapReadyCallback {
         }
 
         btnAceptarServicio.setOnClickListener {
-            val intent = Intent(this, DetallesServicio::class.java)
+           /* val intent = Intent(this, DetallesServicio::class.java)*/
             startActivity(intent)
         }
     }
@@ -183,13 +183,16 @@ class MapaGeneral : AppCompatActivity(), OnMapReadyCallback {
                     val latitudString = snapshot.child("latitud").getValue(String::class.java)
                     val longitudString = snapshot.child("longitud").getValue(String::class.java)
                     val nombreCompleto = snapshot.child("nombre").getValue(String::class.java)
-
+                    val id = snapshot.key
                     val latitud = latitudString?.replace(",", ".")?.toDoubleOrNull()
                     val longitud = longitudString?.replace(",", ".")?.toDoubleOrNull()
 
                     if (latitud != null && longitud != null && nombreCompleto != null) {
                         val ubicacionVeterinario = LatLng(latitud, longitud)
                         val marker = mapa.addMarker(MarkerOptions().position(ubicacionVeterinario).title(nombreCompleto))
+                        // se agrega el id al marker?
+                        marker?.tag = id
+        
                         if (marker != null) {
                             marcadores.add(marker)
                         } // Agrega esta línea para agregar el marcador a la lista

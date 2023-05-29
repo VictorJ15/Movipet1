@@ -10,7 +10,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.taller3.databinding.RegistroDatosUsuarioBinding
+
 import com.example.taller3.databinding.RegistroDatosVeterinarioBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

@@ -7,32 +7,60 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
-
+import com.example.taller3.databinding.DetallesServicioBinding
 
 class DetallesServicio : AppCompatActivity() {
 
-    private lateinit var nombreVeterinario: String
+    private lateinit var idVeterinario: String
+    private lateinit var binding:DetallesServicioBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.detalles_servicio)
+        binding = DetallesServicioBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val btn = findViewById<Button>(R.id.btn_continuar)
-        btn.setOnClickListener{
+
+        // Obtener el id del veterinario de los extras del intent
+        idVeterinario = intent.getStringExtra("idVeterinario").toString()
+
+        binding.btn_continuar.setOnClickListener {
             val intent = Intent(this, Pago::class.java)
             startActivity(intent)
         }
 
-        // Obtener el nombre y apellido del veterinario de los extras del intent
-        nombreVeterinario = intent.getStringExtra("nombreVeterinario").toString()
+
+
 
         // Obtener una referencia a la ubicación de los veterinarios en la base de datos
         val mRootReference = FirebaseDatabase.getInstance().reference.child("veterinarios")
 
         // Consultar la base de datos para obtener los datos del veterinario por nombre y apellido
-        val query = mRootReference.orderByChild("nombre").equalTo(nombreVeterinario)
+        val query = mRootReference.orderByChild("nombre").equalTo(idVeterinario)
+        mRootReference.child(idVeterinario).get().addOnSuccessListener {
+            if(it.exists()){
 
-        query.addListenerForSingleValueEvent(object : ValueEventListener {
+                val nombre = it.child("nombre").getValue(String::class.java)
+                val apellido = it.child("apellido").getValue(String::class.java)
+                val placa = it.child("placa del vehiculo").getValue(String::class.java)
+                val fotoVeterinario = it.child("foto").getValue(String::class.java)
+                binding.etNombreVeterinario.text = nombre
+                binding.etApellidoVeterinario.text = apellido
+                binding.etPlacaVehiculo.text = placa
+
+
+            }else{
+                Toast.makeText(this,"No existe este id",Toast.LENGTH_SHORT).show()
+            }
+
+
+
+
+
+        }.addOnFailureListener{
+            Toast.makeText(this,"Fallo lectura de Base de Datos",Toast.LENGTH_SHORT).show()
+        }
+
+        /*query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Verificar si se encontraron resultados
                 if (dataSnapshot.exists()) {
@@ -65,6 +93,8 @@ class DetallesServicio : AppCompatActivity() {
             override fun onCancelled(databaseError: DatabaseError) {
                 Toast.makeText(this@DetallesServicio, "Error al consultar la base de datos", Toast.LENGTH_SHORT).show()
             }
-        })
+        })*/
+
+
     }
 }
