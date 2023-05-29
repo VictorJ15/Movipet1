@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+
+    <!-- Fragmento para mostrar el mapa -->
+    <fragment
+        android:id="@+id/map_general"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Botón para pedir el servicio -->
+    <Button
+        android:id="@+id/btn_pedirServicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pedir servicio" />
+
+    <Button
+        android:id="@+id/btn_aceptarServicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aceptar servicio" />
+
+</LinearLayout>

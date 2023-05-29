@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiente_colores"
+    tools:context=".SolicitarVideoConsulta">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".05"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".15"
+        android:orientation="horizontal"/>
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h88"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="36dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".05"
+        android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/v95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".95"
+        android:orientation="vertical"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/h05"
+        app:layout_constraintBottom_toBottomOf="@id/h15"
+        app:layout_constraintStart_toStartOf="@id/v05"
+        app:layout_constraintEnd_toEndOf="@id/v95">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="SOLICITA VIDEO CONSULTA MEDICA"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="77dp"
+            tools:layout_editor_absoluteY="52dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ubi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@id/v95"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/v05"
+        app:layout_constraintTop_toBottomOf="@id/h15">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubicacion"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="173dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="259dp"
+            android:layout_height="66dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Ingrese una Direccion"
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="154dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/solconsuur"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/h88"
+        app:layout_constraintEnd_toEndOf="@id/v95"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/v05">
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mascota"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="22dp"
+            tools:layout_editor_absoluteY="259dp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="271dp"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/pink_dark"
+            android:entries="@array/tipoMascota"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="247dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motivo"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="22dp"
+            tools:layout_editor_absoluteY="380dp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="307dp"
+            android:layout_height="62dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Digite una Descripcion"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="441dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/h95"
+        app:layout_constraintStart_toStartOf="@id/v05"
+        app:layout_constraintTop_toBottomOf="@id/h88"
+        app:layout_constraintEnd_toEndOf="@id/v95">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".05"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/solicitarVideoConsul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/pink_dark"
+            android:text="Solicitar"
+            android:textSize="15sp"
+            tools:layout_editor_absoluteX="164dp"
+            tools:layout_editor_absoluteY="591dp" />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".05"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

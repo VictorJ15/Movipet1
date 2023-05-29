@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">Taller3</string>
+    <string name="btn_crearCuenta">Crear Cuenta</string>
+    <string name="txtview_usuario"> Usuario </string>
+    <string name="txtview_contraseña"> Contraseña </string>
+    <string name="et_usuario">Escriba su usuario</string>
+    <string name="et_contraseña">Escriba su contraseña</string>
+    <string name="txtview_movipet">MOVIPET</string>
+    <string name="btn_google">Registrarse con Google</string>
+    <string name="tv_correo">Correo</string>
+    <string name="et_correo">Escriba su correo</string>
+    <string name="tv_registro">REGISTRO</string>
+    <string name="tv_telefono">Telefono</string>
+    <string name="et_telefono">Escriba su telefono</string>
+    <string name="et_direccion">Escriba su direccion</string>
+    <string name="tv_direccion">Dirección</string>
+    <string name="btn_entrar">ENTRAR</string>
+    <string name="tv_nombreMascota">Nombre</string>
+    <string name="et_nombreMascota">Escriba el nombre</string>
+    <string name="et_raza">Escriba la raza</string>
+    <string name="tv_raza">Raza</string>
+    <string name="btn_agregarMascota">AGREGAR OTRA MASCOTA</string>
+    <string name="tv_tipoMascota">Tipo</string>
+    <string name="tv_peludito">Registra a tu peludito!!</string>
+    <string name="et_historiaClinica">Escriba la historia clinica</string>
+    <string name="tv_cargarFoto">Cargar Foto</string>
+    <string name="btn_agregar_otra_mascota">Agregar otra mascota</string>
+    <string name="btn_eliminarMascota">ELIMINAR MASCOTA ANTERIOR</string>
+    <string name="txtview_servicios">SERVICIOS</string>
+    <string name="btn_urgencia">URGENCIA</string>
+    <string name="btn_videoConsulta">VIDEO CONSULTA PROGRAMADA</string>
+    <string name="btn_paseadores">PASEADORES</string>
+    <string name="Btn_confirmar_foto">CONFIRMAR FOTO</string>
+    <string name="toast_imgGuardada">Imagen guardada en la galeria</string>
+    <string name="bnt_tomar_foto">FOTO</string>
+    <string name="btn_galeria">GALERIA</string>
+    <string name="btn_guardar">GUARDAR</string>
+    <string name="btn_continuar2">CONTINUAR</string>
+    <string name="iv_historia_clinica">Historia Clinica</string>
+    <string name="tv_cargar_foto_mascota">Carga la foto de tu mascota!</string>
+    <string name="btn_foto">FOTO</string>
+    <string name="btn_continuar3">CONTINUAR</string>
+    <string name="tv_solicitar">SOLICITAR</string>
+    <string name="tv__35000">$35000</string>
+    <string name="tv_juan_perez">Juan Perez</string>
+    <string name="tv_metodo_de_pago">Metodo de Pago:</string>
+    <string name="tv_precio">Precio:</string>
+    <string name="tv_estado">Estado:</string>
+    <string name="tv_especialidad">Especialidad:</string>
+    <string name="tv_informacion_del_veterinario">INFORMACION DEL VETERINARIO</string>
+    <string name="tv_cvv">CVV:</string>
+
+    <string name="btn_registrarse">Registrarse</string>
+
+    <string name="tv_elevacion">Elevación:</string>
+    <string name="btn_img_ubicacionActual">UBICACIÓN ACTUAL</string>
+    <string name="ds_imagen_gps">Imagen GPS</string>
+    <string name="tv_distancia">Distancia:</string>
+    <string name="btn_calcular">CALCULAR</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="calcular_ruta">Calcular ruta</string>
+
+    <string-array name="tipoMascota">
+        <item>Perro</item>
+        <item>Gato</item>
+        <item>Otro</item>
+    </string-array>
+    <string-array name="metodopago">
+        <item>Efectivo</item>
+        <item>Tarjeta</item>
+    </string-array>
+    <string name="title_activity_mapa_servicios">MapaServicios</string>
+    <string name="hint_ingrese_direccion">Ingrese una dirección</string>
+    <string name="tv_nombre">Nombre:</string>
+    <string name="btn_registrar">Registrarse</string>
+    <string name="tv_apellidoUsuario">Apellido:</string>
+    <string name="hint_apellidoUsuario">Escriba su apellido</string>
+    <string name="hint_emailUsuario">Escriba su email</string>
+    <string name="tv_emailUsuario">Email:</string>
+    <string name="tv_passwordUsuario">Contraseña:</string>
+    <string name="hint_passwordUsuario">Escriba su contraseña</string>
+    <string name="tv_fotoUsuario">Foto de Perfil</string>
+    <string name="btn_tomarFoto">Tomar foto</string>
+    <string name="btn_cargarFoto">Cargar foto</string>
+    <string name="tv_identificacionUsuario">Identificación:</string>
+    <string name="hint_identificacionUsuario">Escriba su identificación</string>
+    <string name="hint_latitud">Escriba su latitud</string>
+    <string name="tv_latitud">Latitud:</string>
+    <string name="tv_longitud">Longitud:</string>
+    <string name="hint_longitud">Escriba su longitud</string>
+    <string name="btn_continuar">Continuar</string>
+    <string name="tv_login">INICIAR SESIÓN</string>
+    <string name="btn_login">Entrar</string>
+    <string name="tv_fotoPerfil">FOTO DE PERFIL</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="settings">Settings</string>
+    <string name="tv_autenticacion">Usuario Autenticado Correctamente</string>
+    <string name="tv_marcador">Marcador</string>
+    <string name="btn_cerrar_sesion">Cerrar sesión</string>
+    <string name="btn_establecerEstado">Establecer estado</string>
+    <string name="btn_disponible">Disponible</string>
+    <string name="btn_desconectado">Desconectado</string>
+    <string name="btn_verUbicacion">Ver ubicación</string>
+    <string name="tv_nombreUsuario">Nombre del usuario</string>
+    <string name="btn_usuariosDisponibles">Lista de usuarios disponibles</string>
+    <string name="btn_ubicacionUsuario">Ver ubicación actual del usuario</string>
+    <string name="show_location">Mostrar Ubicacion</string>
+    <string name="des_foto_de_perfil_del_usuario">Foto de perfil del usuario</string>
+    <string name="btn_rastrear">Rastrear</string>
+    <string name="google_maps_key">AIzaSyA2FHeWFtPZv86GoSrW-zHdzvTA6u1teR0</string>
+</resources>
