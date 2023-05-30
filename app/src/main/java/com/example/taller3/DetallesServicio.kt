@@ -2,26 +2,29 @@ package com.example.taller3
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import com.squareup.picasso.Picasso
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.example.taller3.databinding.DetallesServicioBinding
 
+
 class DetallesServicio : AppCompatActivity() {
 
     private lateinit var idVeterinario: String
     private lateinit var binding:DetallesServicioBinding
-
+    private lateinit var distanciaS : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DetallesServicioBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val picasso = Picasso.get()
 
-        // Obtener el id del veterinario de los extras del intent
+
+// Obtener el id del veterinario de los extras del intent
         idVeterinario = intent.getStringExtra("idVeterinario").toString()
+        distanciaS = intent.getStringExtra("distanciaS").toString()
 
         binding.btnContinuar.setOnClickListener {
             val intent = Intent(this, Pago::class.java)
@@ -32,10 +35,10 @@ class DetallesServicio : AppCompatActivity() {
 
 
 
-        // Obtener una referencia a la ubicación de los veterinarios en la base de datos
+// Obtener una referencia a la ubicación de los veterinarios en la base de datos
         val mRootReference = FirebaseDatabase.getInstance().reference.child("veterinarios")
 
-        // Consultar la base de datos para obtener los datos del veterinario por nombre y apellido
+// Consultar la base de datos para obtener los datos del veterinario por nombre y apellido
         val query = mRootReference.orderByChild("nombre").equalTo(idVeterinario)
         mRootReference.child(idVeterinario).get().addOnSuccessListener {
             if(it.exists()){
@@ -47,6 +50,8 @@ class DetallesServicio : AppCompatActivity() {
                 binding.etNombreVeterinario.text = nombre
                 binding.etApellidoVeterinario.text = apellido
                 binding.etPlacaVehiculo.text = placa
+                picasso.load(fotoVeterinario).into(binding.img)
+                binding .etPrecioServicio.text =calcularPrecio().toString()
 
 
             }else{
@@ -61,41 +66,15 @@ class DetallesServicio : AppCompatActivity() {
             Toast.makeText(this,"Fallo lectura de Base de Datos",Toast.LENGTH_SHORT).show()
         }
 
-        /*query.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // Verificar si se encontraron resultados
-                if (dataSnapshot.exists()) {
-                    for (snapshot in dataSnapshot.children) {
-
-                        // Obtener los datos del veterinario
-                        val nombre = snapshot.child("nombre").getValue(String::class.java)
-                        val apellido = snapshot.child("apellido").getValue(String::class.java)
-                        val placa = snapshot.child("placa del vehiculo").getValue(String::class.java)
-                        val fotoVeterinario = snapshot.child("foto").getValue(String::class.java)
-
-                        // Mostrar los datos en la interfaz de usuario (por ejemplo, en TextViews o ImageViews)
-                        val nombreVeterinario = findViewById<TextView>(R.id.et_nombreVeterinario)
-                        nombreVeterinario.text = nombre
-
-                        val apellidoVeterinario = findViewById<TextView>(R.id.et_apellidoVeterinario)
-                        apellidoVeterinario.text = apellido
-
-                        val placaCarro = findViewById<TextView>(R.id.et_placaVehiculo)
-                        placaCarro.text = placa
-
-
-                        break // Si solo deseas obtener un veterinario, puedes detener el bucle después de obtener los datos del primer resultado
-                    }
-                } else {
-                    Toast.makeText(this@DetallesServicio, "No se encontraron datos del veterinario", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                Toast.makeText(this@DetallesServicio, "Error al consultar la base de datos", Toast.LENGTH_SHORT).show()
-            }
-        })*/
-
-
     }
+    private fun calcularPrecio(): Double? {
+        val valorPorKilometro = 185.71 // Cambiar el valor según tus necesidades
+        val double1: Double? = distanciaS.toDouble()
+        val precio = double1?.times(valorPorKilometro)
+        val tarifaVeterinario = 35000
+        val totalPagar = precio?.plus(tarifaVeterinario)
+        return totalPagar
+    }
+
+
 }

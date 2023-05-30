@@ -46,9 +46,7 @@
         <activity
             android:name=".ConsultaVideo"
             android:exported="false" />
-        <activity
-            android:name=".SolicitarVideoConsulta"
-            android:exported="false" />
+
 
         <activity
             android:name=".Exitoso"
@@ -148,6 +146,9 @@
 
         <activity
             android:name=".Veterinario"
+            android:exported="false" />
+        <activity
+            android:name=".DetallesVideoConsulta"
             android:exported="false" />
     </application>
 

@@ -16,7 +16,7 @@ class MenuServicios : AppCompatActivity() {
         }
         val btn2 = findViewById<Button>(R.id.btn_videoConsulta)
         btn2.setOnClickListener {
-            val intent = Intent(this, SolicitarVideoConsulta::class.java)
+            val intent = Intent(this, ConsultaVideo::class.java)
             startActivity(intent)
         }
 
